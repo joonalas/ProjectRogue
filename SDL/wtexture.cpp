@@ -1,4 +1,5 @@
 #include "mySDL.h"
+#include "mygame.h"
 
 //Texture wrapper class
 
@@ -63,8 +64,8 @@ void WTexture::render(int x, int y, SDL_Rect* clip) {
     
     //Set clip rendering dimensions
     if( clip != NULL ) {
-        renderQuad.w = clip->w;
-        renderQuad.h = clip->h;
+        renderQuad.w = TILE_WIDTH;
+        renderQuad.h = TILE_HEIGHT;
     }
 
     //Render to screen

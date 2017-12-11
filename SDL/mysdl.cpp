@@ -25,7 +25,7 @@ SDL_Texture* currentTexture = NULL;
 SDL_Surface* baregroundSurface = NULL;
 
 //Scene sprites
-SDL_Rect spriteClips[4];
+SDL_Rect spriteClips[1];
 WTexture spriteSheetTexture;
 
 /*
@@ -86,33 +86,15 @@ bool loadMedia() {
     bool success = true;
 
     //Load sprite sheet texture
-    if(!spriteSheetTexture.loadFromFile("/home/jlassila/Pictures/screenshot.png")) {
+    if(!spriteSheetTexture.loadFromFile("../Textures/Terrain/terrainsheet.png")) {
         printf( "Failed to load sprite sheet texture!\n" );
         success = false;
     } else {
-        //top left sprite
+        //Bare ground sprite clip
         spriteClips[0].x = 0;
         spriteClips[0].y = 0;
-        spriteClips[0].w = 100;
-        spriteClips[0].h = 100;
-
-        //Set top right sprite
-        spriteClips[1].x = 100;
-        spriteClips[1].y = 0;
-        spriteClips[1].w = 100;
-        spriteClips[1].h = 100;
-
-        //Set bottom left sprite
-        spriteClips[2].x = 0;
-        spriteClips[2].y = 100;
-        spriteClips[2].w = 100;
-        spriteClips[2].h = 100;
-
-        //Set bottom right sprite
-        spriteClips[3].x = 100;
-        spriteClips[3].y = 100;
-        spriteClips[3].w = 100;
-        spriteClips[3].h = 100;
+        spriteClips[0].w = 64;
+        spriteClips[0].h = 64;
     }
 
     return success;

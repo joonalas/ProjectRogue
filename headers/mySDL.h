@@ -14,8 +14,8 @@
 extern const char* TITLE;
 
 //constants for screen width and height
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 360;
+const int SCREEN_WIDTH = 840;
+const int SCREEN_HEIGHT = 560;
 
 /*
     CLASSES
@@ -68,7 +68,7 @@ extern SDL_Texture* currentTexture;
 extern SDL_Surface* baregroundSurface;
 
 //Scene sprites
-extern SDL_Rect spriteClips[4];
+extern SDL_Rect spriteClips[1];
 extern WTexture spriteSheetTexture;
 
 /*
