@@ -15,6 +15,11 @@ int main() {
 
         //Generate floor
         Floor floor1;
+
+        //test textures TODO:erase
+        if(!loadMedia()) {
+            cout<<"Failed to load media!\n";
+        }
     
         //Main loop flag
         bool quit = false;
@@ -32,8 +37,21 @@ int main() {
                 }
             }
 
-            //Update window
-            SDL_UpdateWindowSurface(window);
+            //Clear screen
+            SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+            SDL_RenderClear(renderer);
+
+            //Render top left sprite
+            spriteSheetTexture.render(0, 0, &spriteClips[0]);
+            //top right
+            spriteSheetTexture.render(SCREEN_WIDTH - spriteClips[1].w, 0, &spriteClips[1]);
+            //bottom left
+            spriteSheetTexture.render(0, SCREEN_HEIGHT - spriteClips[2].h, &spriteClips[2]);
+            //bottom right
+            spriteSheetTexture.render(SCREEN_WIDTH - spriteClips[3].w, SCREEN_HEIGHT - spriteClips[3].h, &spriteClips[3]);
+
+            //Update screen
+            SDL_RenderPresent(renderer);
         }
     }
     
