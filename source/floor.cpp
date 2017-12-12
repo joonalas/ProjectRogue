@@ -1,28 +1,26 @@
-#include <iostream>
 #include "mygame.h"
 
 //Constructor
 Floor :: Floor() {
-    std::cout<<"Creating new floor.\n";
+    cout<<"Creating new floor.\n";
 
-    //Initialize number of rooms
-    roomCount = 2;
+    //Initialize random seed
+    srand(time(NULL));
 
-    //set floor dimensions
-    w = 5;
-    h = 5;
+    //Initialize number of rooms, something between 1-4
+    roomCount = 1/*rand() % 4 + 1*/;
 
     //allocate memory for blueprint
     blueprint = new Room*[roomCount];
 
     //Fill blueprint with Rooms
     for(int i = 0; i < roomCount; i++) {
-        blueprint[i] = new Room(i*100+5, i*100+5);
+        blueprint[i] = new Room(5, 5);
     }
 }
 
 Floor :: ~Floor() {
-    std::cout<<"Deleting floor blueprint...\n";
+    cout<<"Deleting floor blueprint...\n";
     //Delete blueprint rooms
     for(int i = 0; i < roomCount; i++) {
         blueprint[i]->~Room();

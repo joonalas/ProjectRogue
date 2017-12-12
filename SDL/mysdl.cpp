@@ -85,7 +85,7 @@ bool loadMedia() {
     //Success flag
     bool success = true;
 
-    //Load sprite sheet texture
+    //Load terrain sprite sheet texture
     if(!spriteSheetTexture.loadFromFile("../Textures/Terrain/terrainsheet.png", 4, 12)) {
         printf( "Failed to load sprite sheet texture!\n" );
         success = false;

@@ -1,18 +1,15 @@
-#include <iostream>
-#include <string>
 #include "mygame.h"
 #include "mySDL.h"
-
-using namespace std;
 
 int main() {
     //Initialize SDL
     if(!init()) {
         cout<<"Failed to initialize!\n";
     } else {
-        
+
         //Generate floor
-        Floor floor1;
+        Floor* floor;
+        floor = new Floor;
 
         //test textures TODO:erase
         if(!loadMedia()) {
@@ -32,6 +29,9 @@ int main() {
                 //Xing out the window
                 if(e.type == SDL_QUIT) {
                     quit = true;
+                } else if(e.type == SDL_KEYDOWN) {
+                    delete floor;
+                    floor = new Floor;
                 }
             }
 
@@ -40,11 +40,13 @@ int main() {
             SDL_RenderClear(renderer);
             
             //render floor
-            floor1.renderFloor();
+            floor->renderFloor();
 
             //Update screen
             SDL_RenderPresent(renderer);
         }
+        //Deallocate floor data
+        delete floor;
     }
 
     //Quit SDL and exit

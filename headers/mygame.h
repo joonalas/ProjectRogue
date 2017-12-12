@@ -1,14 +1,24 @@
 #ifndef INTEPRETER_HEADER
 #define INTEPRETER_HEADER
-#include <string>
+
+#include <iostream>
+#include <time.h>
+#include <stdlib.h>
+
+using namespace std;
 
 /*
     CONSTANTS
 +-------------------------------------------------------------------------------+
 */
 
-const int TILE_WIDTH = 20;
-const int TILE_HEIGHT = 20;
+const int TILE_WIDTH = 32;
+const int TILE_HEIGHT = 32;
+
+enum TERRAIN_SPRITES {
+    TERRAIN_BAREGROUND,
+    TERRAIN_WALL
+};
 
 /*
     CLASSES
@@ -42,10 +52,6 @@ class Room {
 class Floor {
     private:
     Room** blueprint;
-    //int blueprintLength;
-    //floor dimensions
-    int w;
-    int h;
     //Number of rooms
     int roomCount;
     public:
@@ -53,6 +59,8 @@ class Floor {
     ~Floor();
     void renderFloor();
 };
+
+//Terrain tiles
 
 class BareGround: public Terrain {
     public:
@@ -65,6 +73,21 @@ class BareGround: public Terrain {
 
     private:
     //Tile position
+    int x;
+    int y;
+};
+
+class Wall: public Terrain {
+    public:
+    //Init
+    Wall(int x, int y);
+    //Deallocate memory
+    ~Wall();
+    //Render terrain tile
+    void draw();
+
+    private:
+    //tile position
     int x;
     int y;
 };
