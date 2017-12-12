@@ -30,11 +30,13 @@ class WTexture {
     //Deallocates memory
     ~WTexture();
     //Loads image at specified path
-    bool loadFromFile(const char*);
+    bool loadFromFile(const char*, int newColumns, int newRows);
+    //Add clipping information
+    void addSpriteClips(int w, int h);
     //Deallocates texture
     void free();
-    //Renders texture at given point
-    void render(int x, int y, SDL_Rect* clip = NULL);
+    //Renders texture at given point, clip is the ID of the desired clipping rectangle
+    void render(int x, int y, int clip);
     //Gets image dimensions
     int getWidth();
     int getHeight();
@@ -42,6 +44,14 @@ class WTexture {
     private:
     //Actual hardware texture
     SDL_Texture* hwTexture;
+    //Sprite clipping
+    SDL_Rect* spriteClips;
+    //Number of sprites in the texture
+    int spriteCount;
+    //Number of rows and columns in the sprite sheet. 
+    //Three rows and three columns would make for 9 sprites in the sheet, go figure.
+    int rows;
+    int columns;
     //Image dimensions
     int hwWidth;
     int hwHeight;
@@ -68,7 +78,6 @@ extern SDL_Texture* currentTexture;
 extern SDL_Surface* baregroundSurface;
 
 //Scene sprites
-extern SDL_Rect spriteClips[1];
 extern WTexture spriteSheetTexture;
 
 /*

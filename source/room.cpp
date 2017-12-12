@@ -2,7 +2,7 @@
 #include "mygame.h"
 
 Room::Room(int posX, int posY) {
-    std::cout<<"Creating new new Room.\n";
+    std::cout<<"Creating new Room.\n";
     //set floor position
     x = posX;
     y = posY;
@@ -26,11 +26,10 @@ Room::~Room() {
     std::cout<<"Deleting room blueprint...\n";
     //Delete blueprint terrain
     for(int i = 0; i < w*h; i++) {
-        std::cout<<"Deleting "<<(i+1)<<". terrain piece...\n";
         delete blueprint[i];
     }
     //Delete blueprint
-    std::cout<<"Deleting blueprint...\n";
+    //std::cout<<"Deleting blueprint...\n";
     delete[] blueprint;
 }
 

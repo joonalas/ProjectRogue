@@ -86,15 +86,12 @@ bool loadMedia() {
     bool success = true;
 
     //Load sprite sheet texture
-    if(!spriteSheetTexture.loadFromFile("../Textures/Terrain/terrainsheet.png")) {
+    if(!spriteSheetTexture.loadFromFile("../Textures/Terrain/terrainsheet.png", 4, 12)) {
         printf( "Failed to load sprite sheet texture!\n" );
         success = false;
     } else {
-        //Bare ground sprite clip
-        spriteClips[0].x = 0;
-        spriteClips[0].y = 0;
-        spriteClips[0].w = 64;
-        spriteClips[0].h = 64;
+        //Init individual sprite clipping data, provide width and height of a single sprite as arguments
+        spriteSheetTexture.addSpriteClips(64, 64);
     }
 
     return success;

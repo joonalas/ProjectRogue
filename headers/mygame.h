@@ -15,18 +15,6 @@ const int TILE_HEIGHT = 20;
 +-------------------------------------------------------------------------------+
 */
 
-//Command intepreter
-class Intepreter {
-    private:
-    //Hide constructor
-    Intepreter();
-    public:
-    //Use to create and get the single instance
-    static Intepreter& getInstance();
-    //Intepret player input
-    void intepretCmd(std::string);
-};
-
 class Terrain {
     public:
     //All derived classes should have virtual or protected destructor.

@@ -1,5 +1,5 @@
 #OBJS specifies which files to compile
-OBJS = ../source/main.cpp ../source/interpreter.cpp ../source/floor.cpp ../source/bareground.cpp ../source/terrain.cpp ../SDL/mysdl.cpp ../SDL/wtexture.cpp ../source/room.cpp
+OBJS = ../source/main.cpp ../source/floor.cpp ../source/bareground.cpp ../source/terrain.cpp ../SDL/mysdl.cpp ../SDL/wtexture.cpp ../source/room.cpp
 
 #CC specifies which compiler we're using
 CC = g++

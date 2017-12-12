@@ -7,14 +7,12 @@ using namespace std;
 BareGround :: BareGround(int posX, int posY) {
     x = posX;
     y = posY;
-    cout<<"Generating bare ground terrain...\n";
+    //cout<<"Generating bare ground terrain...\n";
 }
 
-BareGround :: ~BareGround() {
-
-}
+BareGround :: ~BareGround() {}
 
 void BareGround :: draw(){
-    //bare ground
-    spriteSheetTexture.render(x, y, &spriteClips[0]);
+    //Render bare ground sprite
+    spriteSheetTexture.render(x, y, 0);
 }

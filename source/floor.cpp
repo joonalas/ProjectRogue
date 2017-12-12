@@ -5,7 +5,7 @@
 Floor :: Floor() {
     std::cout<<"Creating new floor.\n";
 
-    //only single room
+    //Initialize number of rooms
     roomCount = 2;
 
     //set floor dimensions
@@ -25,12 +25,9 @@ Floor :: ~Floor() {
     std::cout<<"Deleting floor blueprint...\n";
     //Delete blueprint rooms
     for(int i = 0; i < roomCount; i++) {
-        std::cout<<"Deleting "<<(i+1)<<". room...\n";
         blueprint[i]->~Room();
-        //delete blueprint[i];
     }
     //Delete blueprint
-    std::cout<<"Deleting floor blueprint...\n";
     delete[] blueprint;
 }
 

@@ -10,9 +10,7 @@ int main() {
     if(!init()) {
         cout<<"Failed to initialize!\n";
     } else {
-        //Get command intepreter instance
-        Intepreter& intepreter = Intepreter :: getInstance();
-
+        
         //Generate floor
         Floor floor1;
 
