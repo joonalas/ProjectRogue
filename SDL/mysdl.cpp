@@ -73,7 +73,7 @@ bool init() {
                     //get window surface
                     windowSurface = SDL_GetWindowSurface(window);
                 }
-            }  
+            } 
         }
     }
 

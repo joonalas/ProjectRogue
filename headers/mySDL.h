@@ -13,7 +13,7 @@
 //Window title
 extern const char* TITLE;
 
-//constants for screen width and height
+//constants for screen width and height (also camera width and height)
 const int SCREEN_WIDTH = 840;
 const int SCREEN_HEIGHT = 560;
 

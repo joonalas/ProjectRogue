@@ -15,6 +15,9 @@ using namespace std;
 const int TILE_WIDTH = 32;
 const int TILE_HEIGHT = 32;
 
+const int FLOOR_WIDTH = 1200;
+const int FLOOR_HEIGHT = 960;
+
 enum TERRAIN_SPRITES {
     TERRAIN_BAREGROUND,
     TERRAIN_WALL
@@ -43,9 +46,11 @@ class Room {
     int w;
     int h;
     public:
-    Room(int posX, int posY);
+    Room(int posX, int posY, int width, int height);
     ~Room();
     void drawRoom();
+    int getWidth();
+    int getHeight();
 };
 
 //dungeon floors
@@ -54,8 +59,11 @@ class Floor {
     Room** blueprint;
     //Number of rooms
     int roomCount;
+    //floor dimensions
+    int w;
+    int h;
     public:
-    Floor();
+    Floor(int w, int h);
     ~Floor();
     void renderFloor();
 };

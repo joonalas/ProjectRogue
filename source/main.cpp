@@ -9,7 +9,7 @@ int main() {
 
         //Generate floor
         Floor* floor;
-        floor = new Floor;
+        floor = new Floor(FLOOR_WIDTH, FLOOR_HEIGHT);
 
         //test textures TODO:erase
         if(!loadMedia()) {
@@ -31,7 +31,7 @@ int main() {
                     quit = true;
                 } else if(e.type == SDL_KEYDOWN) {
                     delete floor;
-                    floor = new Floor;
+                    floor = new Floor(FLOOR_WIDTH, FLOOR_HEIGHT);
                 }
             }
 

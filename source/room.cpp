@@ -1,18 +1,15 @@
 #include "mygame.h"
 
-Room::Room(int posX, int posY) {
+Room::Room(int posX, int posY, int width, int height) {
     cout<<"Creating new Room.\n";
 
-    //Initialize random seed
-    srand(time(NULL));
-
-    //set floor position
+    //set room position
     x = posX;
     y = posY;
 
-    //set floor dimensions
-    w = rand() % 8 + 3; //width 3-10 tiles
-    h = rand() % 8 + 3; //height 3-10 tiles
+    //set room dimensions
+    w = width; //width 3-10 tiles
+    h = height; //height 3-10 tiles
 
     //allocate memory for blueprint
     blueprint = new Terrain*[w*h];
@@ -22,7 +19,7 @@ Room::Room(int posX, int posY) {
         for(int j = 0; j < w; j++) {
             //walls
             if(k == 0 || k == (h-1) || j == 0 || j == (w-1)) {
-                cout<< "wall created\n";
+                //cout<< "wall created\n";
                 blueprint[(k*w + j)] = new Wall(j*TILE_WIDTH+x, k*TILE_HEIGHT+y);
             } else {
                 blueprint[(k*w + j)] = new BareGround(j*TILE_WIDTH+x, k*TILE_HEIGHT+y);
@@ -47,4 +44,12 @@ void Room::drawRoom() {
     for(int i = 0; i < w*h; i++) {
         blueprint[i]->draw();
     }
+}
+
+int Room::getWidth() {
+    return this->w;
+}
+
+int Room::getHeight() {
+    return this->h;
 }
